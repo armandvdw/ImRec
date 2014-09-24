@@ -1,10 +1,15 @@
 package main;
 
 import org.opencv.core.*;
+import org.opencv.core.Point;
 import org.opencv.highgui.Highgui;
 import org.opencv.objdetect.CascadeClassifier;
 
-    class DetectObject {
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+
+class DetectObject {
         public void run() {
             System.out.println("\nRunning DetectFaceDemo");
             String cascadeFile1 = "C:/Dev/Imrec/ImrecVar/Training/trainedClassifier/cascade.xml";
@@ -31,8 +36,24 @@ import org.opencv.objdetect.CascadeClassifier;
             // Save the visualized detection.
             String filename = "C:/Users/TheOnlyMonkey/Desktop/mtn.jpg";
             System.out.println(String.format("Writing %s", filename));
-            Highgui.imwrite(filename, image);
+            //Highgui.imwrite(filename, image);
+
         }
+
+    public Image toBufferedImage(Mat m){
+        int type = BufferedImage.TYPE_BYTE_GRAY;
+        if ( m.channels() > 1 ) {
+            type = BufferedImage.TYPE_3BYTE_BGR;
+        }
+        int bufferSize = m.channels()*m.cols()*m.rows();
+        byte [] b = new byte[bufferSize];
+        m.get(0,0,b); // get all the pixels
+        BufferedImage image = new BufferedImage(m.cols(),m.rows(), type);
+        final byte[] targetPixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
+        System.arraycopy(b, 0, targetPixels, 0, b.length);
+        return image;
+
+    }
     }
 
     public class ImageDetection {

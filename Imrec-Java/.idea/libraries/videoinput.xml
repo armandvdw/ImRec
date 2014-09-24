@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="videoinput">
+    <CLASSES>
+      <root url="jar://C:/DevEnv/javacv-bin/videoinput.jar!/" />
+      <root url="jar://C:/DevEnv/javacv-bin/opencv.jar!/" />
+      <root url="jar://C:/DevEnv/javacv-bin/ffmpeg.jar!/" />
+      <root url="jar://C:/DevEnv/javacv-bin/libfreenect.jar!/" />
+      <root url="jar://C:/DevEnv/javacv-bin/flycapture.jar!/" />
+      <root url="jar://C:/DevEnv/javacv-bin/artoolkitplus.jar!/" />
+      <root url="jar://C:/DevEnv/javacv-bin/javacpp.jar!/" />
+      <root url="jar://C:/DevEnv/javacv-bin/libdc1394.jar!/" />
+      <root url="jar://C:/DevEnv/javacv-bin/javacv.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

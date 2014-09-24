@@ -17,6 +17,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="opencv-2491" level="project" />
+    <orderEntry type="library" name="videoinput" level="project" />
   </component>
 </module>
 
