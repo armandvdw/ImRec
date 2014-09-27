@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.io.File;
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class TrainingPreparationTest {
@@ -35,9 +36,35 @@ public class TrainingPreparationTest {
     public void testWriteToFile(){
         String posNeg =  "neg";
         String directory = "C:/Dev/Imrec/ImrecVar/tests";
-        String imageLocation =  "C:/Dev/Imrec/ImrecVar";
+        String imageLocation = "C:/Dev/Imrec/ImrecVar";
         TrainingPreparation prep = new TrainingPreparation();
         ArrayList<File> list = prep.getImagesInDirectory(directory);
         prep.writeToFile(list,imageLocation, posNeg);
+    }
+
+    @Test
+    public void testGetPosImagesData(){
+        String posDirectory = "C:/temp/posDrop";
+        String trainingDirectory = "C:/temp/trainDir";
+        TrainingPreparation prep = new TrainingPreparation();
+        prep.getPosImages(posDirectory, trainingDirectory);
+        assertTrue(prep.fileExists(trainingDirectory + "/" + TrainingPreparation.POSDAT));
+    }
+
+    @Test
+    public void testGetNegImagesData(){
+        String negDirectory = "C:/temp/negDrop";
+        String trainingDirectory = "C:/temp/trainDir";
+        TrainingPreparation prep = new TrainingPreparation();
+        prep.getNegImages(negDirectory, trainingDirectory);
+        assertTrue(prep.fileExists(trainingDirectory + "/" + TrainingPreparation.NEGDAT));
+    }
+    @Test
+    public void testIsImage(){
+        String a = "c:/temp/image.jpg";
+        String b = "c:/temp/image.txt";
+        TrainingPreparation prep = new TrainingPreparation();
+        assertTrue(prep.isImage(a));
+        assertFalse(prep.isImage(b));
     }
 }

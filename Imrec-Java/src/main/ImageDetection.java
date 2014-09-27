@@ -1,5 +1,6 @@
 package main;
 
+import org.bytedeco.javacv.CanvasFrame;
 import org.opencv.core.*;
 import org.opencv.core.Point;
 import org.opencv.highgui.Highgui;
@@ -37,7 +38,8 @@ class DetectObject {
             String filename = "C:/Users/TheOnlyMonkey/Desktop/mtn.jpg";
             System.out.println(String.format("Writing %s", filename));
             //Highgui.imwrite(filename, image);
-
+            CanvasFrame fr =  new CanvasFrame("Frame");
+            fr.showImage(this.toBufferedImage(image));
         }
 
     public Image toBufferedImage(Mat m){
@@ -59,7 +61,6 @@ class DetectObject {
     public class ImageDetection {
         public static void main(String[] args) {
             System.out.println("Hello, OpenCV");
-
             // Load the native library.
             System.loadLibrary("opencv_java249");
             new DetectObject().run();
