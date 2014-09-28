@@ -23,7 +23,6 @@ public class TrainingPreparation {
     public TrainingPreparation(String pos, String neg, String trainingDirectory){
         this.getPosImages(pos, trainingDirectory);
         this.getNegImages(neg, trainingDirectory);
-
     }
 
     public ArrayList<File> getImagesInDirectory(String dirName){
