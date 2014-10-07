@@ -67,6 +67,8 @@ public class ImageTraining {
 
 
 
+
+
     class ComParam{
         String param;
         String value;
